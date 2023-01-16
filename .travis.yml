@@ -15,9 +15,9 @@ before_script:
 
 script:
     - docker --version # print the version for logging
-    - docker build -t simple-node .
-    - docker tag simple-node YOUR_DOCKER_HUB/simple-node:latest
+    - docker build -t travis-env-vars --build-arg FAVORITE_GAME=${FAVORITE_GAME} .
+    - docker tag travis-env-vars floturner/travis-env-vars:latest
 
 after_success:
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-    - docker push YOUR_DOCKER_HUB/simple-node
+    - docker push floturner/travis-env-vars
