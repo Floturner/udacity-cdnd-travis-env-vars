@@ -1,4 +1,4 @@
 # Overview
 
-Containerize a node.js application using Travis CI.
+Containerize a bare-bones Node.js application using docker and Travis CI.
 
